@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5e9; /* Light pastel green */
+            color: #2e7d32; /* Dark green for text */
+        }
+        header {
+            background-color: #28a745; /* Dark green */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #2e7d32; /* Border to match color scheme */
+            border-radius: 10px;
+        }
+        .crop-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .crop-item {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recommended Crops</h1>
+    </header>
+    <div class="container">
+        <ul class="crop-list">
+            {% for crop in crops %}
+                <li class="crop-item">
+                    <img src="{{ url_for('static', filename='images/' + crop + '.jpg') }}" alt="{{ crop }}" width="300" height="350">
+                    <p>{{ crop }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+</head>
+<body>
+    <h1>Recommended Crops</h1>
+    <ul>
+        {% for crop in crops %}
+            <li>
+                <img src="{{ url_for('static', filename='images/' + crop + '.jpg') }}" alt="{{ crop }}" width="250" height="300">
+                <p>{{ crop }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->
